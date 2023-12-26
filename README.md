@@ -9,4 +9,4 @@ TodoApp is a comprehensive task management application that allows you to seamle
 
 ## Usage
 
-To use the TodoApp, please visit the following URL: (URL)
+To utilize the functionality of TodoApp, kindly visit the [website](https://k-todoapp.azurewebsites.net/). Let me know if you need more help!
