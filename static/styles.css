@@ -1,0 +1,234 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+		Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+		sans-serif;
+	font-size: 18px;
+	background-image: url(/static/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+	backdrop-filter: blur(1px);
+	color: white;
+}
+
+.add_button {
+	position: fixed;
+	background-color: lightgrey;
+	border-radius: 50px;
+	border: none;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	padding: 0;
+	margin-left: 10px;
+	bottom: 25px;
+	right: 40px;
+	filter: drop-shadow(6px 6px 6px rgb(60, 60, 60));
+	box-shadow: none;
+	transition: filter 0.3s ease-in-out;
+	transition: box-shadow 0.1s;
+}
+
+.add_button:hover {
+	filter: none;
+}
+
+.add_button:active {
+	filter: none;
+	box-shadow: inset 5px 5px 5px gray;
+}
+
+.task_info {
+	position: absolute;
+	background-color: lightgrey;
+	bottom: 25px;
+	left: 40px;
+	border-radius: 50px;
+	border: none;
+	width: 70%;
+	height: 40px;
+	cursor: text;
+	padding-left: 10px;
+	margin-right: 10px;
+	filter: drop-shadow(6px 6px 6px rgb(55, 55, 55));
+	text-align: center;
+	box-shadow: none;
+	transition: box-shadow 1s ease;
+	transition: filter 0.3s ease;
+	outline: none;
+}
+
+.task_info:hover {
+	filter: none;
+}
+
+.task_info:focus {
+	filter: none;
+	box-shadow: inset 5px 5px 5px gray;
+}
+
+.tasks {
+	padding-bottom: 70px;
+}
+
+.card {
+	position: relative;
+	text-align: center;
+	padding: 20px 0 20px 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 30px;
+	filter: drop-shadow(20px 20px 20px rgb(29, 27, 27));
+	min-height: 70vh;
+	width: 475px;
+}
+
+.Submit {
+	border: 0px;
+	border-radius: 50px;
+	margin-top: 20px;
+}
+
+hr {
+	border: solid 2px white;
+	border-radius: 50%;
+}
+
+.main_heading,
+h1 {
+	margin: 0 10% 0 10%;
+	font-size: 40px;
+}
+
+.info {
+	font-style: italic;
+}
+
+.task {
+	text-align: left;
+	padding: 10px 0 10px 0;
+	border-top: solid 1px lightgrey;
+	border-bottom: solid 1px lightgrey;
+}
+
+.fade-in {
+	text-align: left;
+	padding: 10px 0 10px 0;
+	border-top: solid 1px lightgrey;
+	border-bottom: solid 1px lightgrey;
+	animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+span {
+	margin-left: 10px;
+}
+
+.custom-checkbox {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	user-select: none;
+}
+
+.custom-checkbox input {
+	position: relative;
+	opacity: 0;
+}
+
+.custom-checkbox .checkbox-icon {
+	position: absolute;
+	top: 0;
+	left: 10px;
+	width: 18px;
+	height: 18px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
+.custom-checkbox .checkbox-icon::after {
+	content: "\2713";
+	color: #27ae60;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: none;
+}
+
+.custom-checkbox input:checked + .checkbox-icon::after {
+	display: block;
+}
+
+.custom-checkbox input:checked + .checkbox-icon + span {
+	color: grey;
+	text-decoration: line-through;
+}
+
+.update_button {
+	position: fixed;
+	right: 70px;
+	border-radius: 50px;
+	border: None;
+	background-color: rgb(0, 147, 196);
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.update_button:hover {
+	background-color: rgb(5, 178, 247);
+}
+
+.delete_button {
+	position: fixed;
+	right: 10px;
+	border-radius: 50px;
+	border: None;
+	background-color: #ff3632;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.delete_button:hover {
+	background-color: lightcoral;
+}
+
+.save_button {
+	position: fixed;
+	background-color: lightgreen;
+	border-radius: 50px;
+	right: 70px;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.save_button:hover {
+	background-color: rgb(76, 213, 76);
+}
+
+.update_task_input {
+	margin-left: 10px;
+	font-size: 17px;
+	border: none;
+	width: 320px;
+	outline: none;
+	background-color: rgba(0, 0, 0, 0);
+	color: white;
+	backdrop-filter: blur(8px);
+	border-radius: 5px;
+}

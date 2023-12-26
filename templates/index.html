@@ -1,0 +1,104 @@
+{% extends 'base.html' %} {% block body %}
+
+<div class="card">
+	<div class="main_heading">
+		<h1>To-do</h1>
+		<hr />
+	</div>
+	<div class="info">
+		<p>lets get it done</p>
+		<form method="post" action="/">
+			<input
+				type="text"
+				class="task_info"
+				name="task_info"
+				id="display_text"
+				placeholder="Add Task"
+			/>
+			<button class="add_button" alt="Add Task" type="submit">
+				<img src="{{ url_for('static', filename='plus.png') }}" />
+			</button>
+		</form>
+	</div>
+	<div class="tasks">
+		{% for i in range(length) %} {% if i == last_index and not_deleted %}
+		<div class="fade-in" id="task_{{tasks[i].id}}">
+			{%else%}
+			<div class="task" id="task_{{tasks[i].id}}">
+				{% endif %}
+				<label class="custom-checkbox">
+					<input
+						type="checkbox"
+						{%
+						if
+						tasks[i].checked
+						%}
+						checked
+						{%
+						endif
+						%}
+						onchange="toggleTodo('{{ tasks[i].id }}', this.checked)"
+					/>
+					<div class="checkbox-icon"></div>
+
+					<span id="task-text-{{ tasks[i].id }}" class="task_text">
+						{{ tasks[i].task }}</span
+					>
+
+					{% if tasks[i].checked %}
+					<button
+						class="update_button"
+						onclick="enableTaskUpdate('{{ tasks[i].id }}')"
+						id="update_button_{{ tasks[i].id }}"
+						style="display: none"
+					>
+						Update
+					</button>
+					{% else %}
+					<button
+						class="update_button"
+						onclick="enableTaskUpdate('{{ tasks[i].id }}')"
+						id="update_button_{{ tasks[i].id }}"
+					>
+						Update
+					</button>
+					{% endif %}
+					<a href="/delete/{{ tasks[i].id }}"
+						><button
+							class="delete_button"
+							id="delete_button_{{ tasks[i].id }}"
+						>
+							Delete
+						</button></a
+					>
+				</label>
+
+				<form
+					id="update-form-{{ tasks[i].id }}"
+					class="update-form"
+					style="display: none"
+				>
+					<input
+						type="text"
+						name="updated_task"
+						id="update_info_input_box_{{ tasks[i].id }}"
+						class="update_task_input"
+						onfocus="takeUpdatedInfo('{{ tasks[i].id }}')"
+						value="{{ tasks[i].task }}"
+					/>
+					<button
+						type="button"
+						id="save_update_info_{{ tasks[i].id }}"
+						class="save_button"
+						onClick="updateTask('{{ tasks[i].id }}')"
+					>
+						Save
+					</button>
+				</form>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+
+	{% endblock %}
+</div>
